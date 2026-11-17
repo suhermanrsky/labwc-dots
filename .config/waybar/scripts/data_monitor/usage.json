@@ -1,0 +1,18 @@
+{
+    "monthly_wifi": 248588690,
+    "monthly_eth": 0,
+    "life_wifi": 1621388059,
+    "life_eth": 0,
+    "daily_wifi": 1621388059,
+    "daily_eth": 0,
+    "last_proc_wifi": 1621388059,
+    "last_proc_eth": 0,
+    "last_reset_date": "2026-10-24",
+    "next_monthly_reset_date": "2026-10-30",
+    "notified_daily_90": false,
+    "notified_daily_95": false,
+    "notified_daily_100": false,
+    "notified_monthly_90": false,
+    "notified_monthly_95": false,
+    "notified_monthly_100": false
+}
