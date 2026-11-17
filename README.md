@@ -37,7 +37,7 @@ pavucontrol,
 xfce-policykit, 
 blueman,
 wf-recorder, 
-wtype,
+wtype
 
 Icon: Reversal-black-dark
 
