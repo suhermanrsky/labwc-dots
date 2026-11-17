@@ -1,0 +1,33 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/catppuccin-mocha.toml"
+]
+
+[window]
+padding = { x = 12, y = 12 }
+opacity = 1.0
+blur = true
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "JetBrains Mono" # Or change to "Source Code Pro"
+style = "Bold"
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[terminal]
+
+[window.dimensions]
+columns = 120
+lines = 25
+
+[terminal.shell]
+program = "/usr/bin/fish"
