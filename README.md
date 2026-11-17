@@ -10,6 +10,7 @@ cliphist
 grimm
 slurp
 wayfreeze
+wl-clipboard
 wl-copy
 swaycopy
 rofi
