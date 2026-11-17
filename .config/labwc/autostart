@@ -1,0 +1,59 @@
+# Desktop Login sound
+aplay -q ~/.config/labwc/sound/desktop-login.wav >/dev/null 2>&1 &
+
+# Device plugged audio
+~/.config/labwc/device-monitor.sh >/dev/null 2>&1 &
+
+# Alarm Daemon
+~/.config/waybar/scripts/clock_calendar/alarm/alarm.sh start-daemon
+
+# Nowplaying daemon (this is very light weight and 0 cpu usage)
+~/.config/rofi/nowplaying/nowplaying.sh --daemon >/dev/null 2>&1 &
+
+# Set background, prefer awww if available as it has better transitions 
+if command -v awww >/dev/null 2>&1; then
+	awww-daemon >/dev/null 2>&1 &
+else
+	swww-daemon >/dev/null 2>&1 &
+fi
+
+# D-bus and systemd
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE >/dev/null 2>&1
+
+# Keyring
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh >/dev/null 2>&1 &
+
+# Polkit 
+/usr/libexec/xfce-polkit >/dev/null 2>&1 &
+
+# Gtk Theme Refresh
+~/.config/labwc/gtk.sh >/dev/null 2>&1 &
+
+# Clipboard
+wl-clip-persist --clipboard regular &
+# Watch for text and store it in text.db
+wl-paste --type text --watch cliphist -db-path "$HOME/.config/rofi/clipboard/text.db" store &
+# Watch for images and store them in image.db
+wl-paste --type image --watch cliphist -db-path "$HOME/.config/rofi/clipboard/image.db" store &
+
+# Waybar
+(sleep 0.5; waybar --log-level off >/dev/null 2>&1 &)
+
+# Notification 
+# To use swaync replace dunst with swaync
+dunst >/dev/null 2>&1 &
+
+# Gammastep
+gammastep -O 2800 &
+
+# Application
+easyeffects --gapplication-service &
+
+# Idle device manager
+swayidle -w \
+    timeout 300 "~/.config/labwc/idle/brightness_ctrl.sh --fade-out" \
+    resume "~/.config/labwc/idle/brightness_ctrl.sh --fade-in" \
+    timeout 1800 "systemctl suspend" \
+    before-sleep "~/.config/labwc/idle/sleep_ctrl.sh" \
+    after-resume "wlopm --on *; ~/.config/labwc/idle/brightness_ctrl.sh --fade-in" \
+    >/dev/null 2>&1 &

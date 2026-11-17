@@ -1,0 +1,29 @@
+# --- Input & Region ---
+XKB_DEFAULT_LAYOUT=us
+LANG=en_US.UTF-8
+
+# --- Cursor ---
+XCURSOR_THEME=Moga-Light-Cyan
+XCURSOR_SIZE=24
+
+# --- Qt & Font Scaling ---
+QT_QPA_PLATFORM=wayland
+QT_QPA_PLATFORMTHEME=qt6ct
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+QT_ENABLE_HIGHDPI_SCALING=1
+
+# --- GTK & Text Rendering ---
+GDK_BACKEND=wayland,x11
+GSK_RENDERER=cairo
+TEXT_SCALING_FACTOR=1.0
+GTK_THEME=Reversal-Dark
+
+# --- Toolkit Antialiasing Fix ---
+FONTCONFIG_PATH=/etc/fonts
+
+# --- Browser Performance & Sharp Text ---
+MOZ_ENABLE_WAYLAND=1
+
+# --- Desktop Identity (Helps with screen sharing) ---
+XDG_CURRENT_DESKTOP=labwc:wlroots
+XDG_SESSION_TYPE=wayland

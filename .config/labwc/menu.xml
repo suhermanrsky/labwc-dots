@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu >
+    <menu id="root-menu" label="Applications">
+        <menu id="Games" label="Games" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/applications-games.png">
+            <item label="Games Launcher" icon="/usr/share/icons/hicolor/48x48/apps/heroic.png">
+                <action name="Execute">
+                    <command>/opt/Heroic/heroic</command>
+                </action>
+            </item>
+            <item label="Street Fighter X Tekken" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/input-gaming.png">
+                <action name="Execute">
+                    <command>wine &quot;/home/saint/Games/Street Fighter X Tekken Complete Pack/SFTK.exe&quot;</command>
+                </action>
+            </item>
+            <item label="WineMine" icon="/usr/share/icons/hicolor/scalable/apps/winemine.svg">
+                <action name="Execute">
+                    <command>winemine</command>
+                </action>
+            </item>
+        </menu> <!-- Games -->
+        <menu id="Graphics" label="Graphics" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/applications-graphics.png">
+            <item label="Noctalia Image Annotator" icon="/usr/share/icons/hicolor/scalable/apps/noctalia.svg">
+                <action name="Execute">
+                    <command>noctalia msg annotate</command>
+                </action>
+            </item>
+            <item label="Ristretto Image Viewer" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.ristretto.png">
+                <action name="Execute">
+                    <command>ristretto</command>
+                </action>
+            </item>
+            <item label="Swappy" icon="/usr/share/icons/hicolor/scalable/apps/swappy.svg">
+                <action name="Execute">
+                    <command>sh -c &quot;if [ -n \&quot;\\$*\&quot; ]; then exec swappy -f \&quot;\\$@\&quot;; else grim -g \&quot;\\$(slurp)\&quot; - | swappy -f -; fi&quot; placeholder</command>
+                </action>
+            </item>
+        </menu> <!-- Graphics -->
+        <menu id="Internet" label="Internet" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/applications-internet.png">
+            <item label="AB Download Manager" icon="/home/saint/.local/ABDownloadManager/lib/ABDownloadManager.png">
+                <action name="Execute">
+                    <command>/home/saint/.local/ABDownloadManager/bin/ABDownloadManager</command>
+                </action>
+            </item>
+            <item label="Helium" icon="/usr/share/icons/hicolor/256x256/apps/helium.png">
+                <action name="Execute">
+                    <command>helium</command>
+                </action>
+            </item>
+            <item label="LibreWolf" icon="/usr/share/icons/hicolor/32x32/apps/librewolf.png">
+                <action name="Execute">
+                    <command>/usr/share/librewolf/librewolf</command>
+                </action>
+            </item>
+        </menu> <!-- Internet -->
+        <menu id="Multimedia" label="Multimedia" icon="/usr/share/icons/Adwaita/symbolic/categories/applications-multimedia-symbolic.svg">
+            <item label="Calf Plugin Pack For JACK" icon="/usr/share/icons/hicolor/48x48/apps/calf.png">
+                <action name="Execute">
+                    <command>calfjackhost</command>
+                </action>
+            </item>
+            <item label="Easy Effects" icon="/usr/share/icons/hicolor/scalable/apps/com.github.wwmm.easyeffects.svg">
+                <action name="Execute">
+                    <command>easyeffects</command>
+                </action>
+            </item>
+            <item label="Mpv Media Player" icon="/usr/share/icons/hicolor/32x32/apps/mpv.png">
+                <action name="Execute">
+                    <command>mpv --player-operation-mode=pseudo-gui --</command>
+                </action>
+            </item>
+            <item label="Volume Control" icon="/usr/share/icons/hicolor/scalable/apps/org.pulseaudio.pavucontrol.svg">
+                <action name="Execute">
+                    <command>pavucontrol</command>
+                </action>
+            </item>
+        </menu> <!-- Multimedia -->
+        <menu id="Settings" label="Settings" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/preferences-desktop-accessibility.png">
+            <item label="Accessibility" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.accessibility.png">
+                <action name="Execute">
+                    <command>xfce4-accessibility-settings</command>
+                </action>
+            </item>
+            <item label="Appearance" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.appearance.png">
+                <action name="Execute">
+                    <command>xfce4-appearance-settings</command>
+                </action>
+            </item>
+            <item label="Bluetooth Adapters" icon="/usr/share/icons/hicolor/16x16/devices/blueman-device.png">
+                <action name="Execute">
+                    <command>blueman-adapters</command>
+                </action>
+            </item>
+            <item label="Bluetooth Manager" icon="/usr/share/icons/hicolor/48x48/apps/blueman.png">
+                <action name="Execute">
+                    <command>blueman-manager</command>
+                </action>
+            </item>
+            <item label="Color Profiles" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.color.png">
+                <action name="Execute">
+                    <command>xfce4-color-settings</command>
+                </action>
+            </item>
+            <item label="Default Applications" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.default-applications.png">
+                <action name="Execute">
+                    <command>xfce4-mime-settings</command>
+                </action>
+            </item>
+            <item label="Desktop" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.xfdesktop.png">
+                <action name="Execute">
+                    <command>xfdesktop-settings</command>
+                </action>
+            </item>
+            <item label="Display" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.display.png">
+                <action name="Execute">
+                    <command>xfce4-display-settings</command>
+                </action>
+            </item>
+            <item label="Keyboard" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.keyboard.png">
+                <action name="Execute">
+                    <command>xfce4-keyboard-settings</command>
+                </action>
+            </item>
+            <item label="Labwc Tweaks" icon="/usr/share/icons/hicolor/scalable/apps/labwc_tweaks.svg">
+                <action name="Execute">
+                    <command>labwc-tweaks</command>
+                </action>
+            </item>
+            <item label="Mouse And Touchpad" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.mouse.png">
+                <action name="Execute">
+                    <command>xfce4-mouse-settings</command>
+                </action>
+            </item>
+            <item label="Noctalia" icon="/usr/share/icons/hicolor/scalable/apps/noctalia.svg">
+                <action name="Execute">
+                    <command>noctalia --daemon</command>
+                </action>
+            </item>
+            <item label="Notifications" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.notification.png">
+                <action name="Execute">
+                    <command>xfce4-notifyd-config</command>
+                </action>
+            </item>
+            <item label="NVIDIA X Server Settings" icon="/usr/share/pixmaps/nvidia-settings.png">
+                <action name="Execute">
+                    <command>nvidia-settings</command>
+                </action>
+            </item>
+            <item label="Panel" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.panel.png">
+                <action name="Execute">
+                    <command>xfce4-panel --preferences</command>
+                </action>
+            </item>
+            <item label="Removable Drives And Media" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.volman.png">
+                <action name="Execute">
+                    <command>thunar-volman-settings</command>
+                </action>
+            </item>
+            <item label="Session And Startup" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.session.png">
+                <action name="Execute">
+                    <command>xfce4-session-settings</command>
+                </action>
+            </item>
+            <item label="Settings Editor" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.editor.png">
+                <action name="Execute">
+                    <command>xfce4-settings-editor</command>
+                </action>
+            </item>
+            <item label="Settings Manager" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.settings.manager.png">
+                <action name="Execute">
+                    <command>xfce4-settings-manager</command>
+                </action>
+            </item>
+            <item label="Text Editor Settings" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.mousepad.png">
+                <action name="Execute">
+                    <command>mousepad --preferences</command>
+                </action>
+            </item>
+            <item label="Thunar Preferences" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.thunar.png">
+                <action name="Execute">
+                    <command>thunar-settings</command>
+                </action>
+            </item>
+            <item label="Volume Control" icon="/usr/share/icons/hicolor/scalable/apps/org.pulseaudio.pavucontrol.svg">
+                <action name="Execute">
+                    <command>pavucontrol</command>
+                </action>
+            </item>
+            <item label="Window Manager" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.xfwm4.png">
+                <action name="Execute">
+                    <command>xfwm4-settings</command>
+                </action>
+            </item>
+            <item label="Window Manager Tweaks" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.xfwm4-tweaks.png">
+                <action name="Execute">
+                    <command>xfwm4-tweaks-settings</command>
+                </action>
+            </item>
+            <item label="Xfce Terminal Settings" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.terminal-settings.png">
+                <action name="Execute">
+                    <command>xfce4-terminal --preferences</command>
+                </action>
+            </item>
+        </menu> <!-- Settings -->
+        <menu id="System" label="System" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/applications-system.png">
+            <item label="Alacritty" icon="/usr/share/pixmaps/Alacritty.svg">
+                <action name="Execute">
+                    <command>alacritty</command>
+                </action>
+            </item>
+            <item label="Disk Usage Analyzer" icon="/usr/share/icons/hicolor/scalable/apps/org.gnome.baobab.svg">
+                <action name="Execute">
+                    <command>baobab</command>
+                </action>
+            </item>
+            <item label="Log Out" icon="/usr/share/icons/hicolor/48x48/actions/xfsm-logout.png">
+                <action name="Execute">
+                    <command>xfce4-session-logout</command>
+                </action>
+            </item>
+            <item label="NVIDIA X Server Settings" icon="/usr/share/pixmaps/nvidia-settings.png">
+                <action name="Execute">
+                    <command>nvidia-settings</command>
+                </action>
+            </item>
+            <item label="Sensor Viewer" icon="/usr/share/icons/hicolor/48x48/apps/xfce-sensors.png">
+                <action name="Execute">
+                    <command>xfce4-sensors</command>
+                </action>
+            </item>
+            <item label="Task Manager" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.taskmanager.png">
+                <action name="Execute">
+                    <command>xfce4-taskmanager</command>
+                </action>
+            </item>
+            <item label="Thunar File Manager" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.thunar.png">
+                <action name="Execute">
+                    <command>thunar</command>
+                </action>
+            </item>
+            <item label="Wifi Hotspot" icon="/usr/share/pixmaps/wihotspot.png">
+                <action name="Execute">
+                    <command>sh -c &apos;env -u LD_PRELOAD DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/wihotspot&apos;</command>
+                </action>
+            </item>
+            <item label="Xfce Terminal" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.terminal.png">
+                <action name="Execute">
+                    <command>xfce4-terminal</command>
+                </action>
+            </item>
+            <item label="Xwayland">
+                <action name="Execute">
+                    <command>/usr/bin/Xwayland -decorate -displayfd 1</command>
+                </action>
+            </item>
+        </menu> <!-- System -->
+        <menu id="Utilities" label="Utilities" icon="/usr/share/icons/AdwaitaLegacy/48x48/legacy/applications-utilities.png">
+            <item label="Bulk Rename" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.thunar.png">
+                <action name="Execute">
+                    <command>thunar --bulk-rename</command>
+                </action>
+            </item>
+            <item label="CopyQ" icon="/usr/share/icons/hicolor/48x48/apps/copyq.png">
+                <action name="Execute">
+                    <command>copyq --start-server show</command>
+                </action>
+            </item>
+            <item label="Disk Usage Analyzer" icon="/usr/share/icons/hicolor/scalable/apps/org.gnome.baobab.svg">
+                <action name="Execute">
+                    <command>baobab</command>
+                </action>
+            </item>
+            <item label="File Manager" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.filemanager.png">
+                <action name="Execute">
+                    <command>exo-open --launch FileManager</command>
+                </action>
+            </item>
+            <item label="Gammastep" icon="/usr/share/icons/hicolor/scalable/apps/gammastep.svg">
+                <action name="Execute">
+                    <command>foot gammastep</command>
+                </action>
+            </item>
+            <item label="Mousepad" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.mousepad.png">
+                <action name="Execute">
+                    <command>mousepad</command>
+                </action>
+            </item>
+            <item label="Passwords And Keys" icon="/usr/share/icons/hicolor/scalable/apps/org.gnome.seahorse.Application.svg">
+                <action name="Execute">
+                    <command>seahorse</command>
+                </action>
+            </item>
+            <item label="Redshift" icon="/usr/share/icons/hicolor/scalable/apps/redshift.svg">
+                <action name="Execute">
+                    <command>foot redshift</command>
+                </action>
+            </item>
+            <item label="Screenshot" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.screenshooter.png">
+                <action name="Execute">
+                    <command>xfce4-screenshooter</command>
+                </action>
+            </item>
+            <item label="Swappy" icon="/usr/share/icons/hicolor/scalable/apps/swappy.svg">
+                <action name="Execute">
+                    <command>sh -c &quot;if [ -n \&quot;\\$*\&quot; ]; then exec swappy -f \&quot;\\$@\&quot;; else grim -g \&quot;\\$(slurp)\&quot; - | swappy -f -; fi&quot; placeholder</command>
+                </action>
+            </item>
+            <item label="Terminal" icon="/usr/share/icons/hicolor/48x48/apps/org.xfce.terminalemulator.png">
+                <action name="Execute">
+                    <command>exo-open --launch TerminalEmulator</command>
+                </action>
+            </item>
+            <item label="WinRAR">
+                <action name="Execute">
+                    <command>env &quot;WINEPREFIX=/home/saint/.wine&quot; wine &quot;C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\WinRAR\\\\WinRAR.lnk&quot;</command>
+                </action>
+            </item>
+            <item label="Xarchiver" icon="/usr/share/icons/hicolor/48x48/apps/xarchiver.png">
+                <action name="Execute">
+                    <command>xarchiver</command>
+                </action>
+            </item>
+        </menu> <!-- Utilities -->
+        <separator />
+        <item label="Terminal" icon="/usr/share/icons/Tela-circle/scalable/apps/terminal.svg">
+            <action name="Execute">
+                <command>foot</command>
+            </action>
+        </item>
+        <item label="Reconfigure" icon="/usr/share/icons/breeze/actions/32/system-reboot.svg">
+            <action name="Reconfigure">
+            </action>
+        </item>
+        <item label="Background" icon="/usr/share/icons/gnome/48x48/apps/preferences-desktop-wallpaper.png">
+            <action name="Execute">
+                <command>sh -c &apos;/home/saint/.config/rofi/wallselect/wallselect.sh&apos;</command>
+            </action>
+        </item>
+        <item label="Exit" icon="/usr/share/icons/breeze/actions/32/system-log-out.svg">
+            <action name="Exit">
+            </action>
+        </item>
+    </menu>
+</openbox_menu>
