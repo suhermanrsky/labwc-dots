@@ -56,10 +56,7 @@ Font: sf-display-pro
 </picture>
   Click Here to View Screenshots
 </strong><br></br>
-  NOTE! Screenshots are old and not updated the UI is same but there are some improvements like no thick borders, better colors, improved scripts etc...
 </summary>
-
----
 
 ## 🎨 Preconfigured Themes (20 Total)
 
