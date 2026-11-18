@@ -86,9 +86,6 @@ Font: sf-display-pro
 ### WAYBAR THEME
 
 <table>
-  <tr>
-    <td colspan="2" align="center">
-      <h5>Rofi Launchers</h5>
     </td>
   </tr>  
   <tr>
