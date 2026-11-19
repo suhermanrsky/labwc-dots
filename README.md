@@ -101,6 +101,6 @@ Circle: <img width="1920" height="40" alt="image" src="https://github.com/user-a
   </tr>
   <tr>
    Transparent: <img width="1920" height="37" alt="image" src="https://github.com/user-attachments/assets/7f7eb4e6-d4d1-46ec-88f9-1191d2e473bd" /></td>
-   ![Waybar Demo](Recording_20261119-065619.gif)
+  <img width="400" height="9" alt="Recording_20261119-065619" src="https://github.com/user-attachments/assets/2416f012-2cd6-422d-be81-a4ac8d99bce8" />
   </tr>
   <tr>
