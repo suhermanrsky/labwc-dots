@@ -140,7 +140,7 @@ Font: sf-display-pro
     </td>
     <td width="50%" align="center">
       <h5>Rofi Nowplaying</h5>
-      <video src="https://github.com/user-attachments/assets/9426fdae-8a95-4335-972e-11dd9aaa1762" controls="controls" style="max-width: 100%;"></video>
+      <img width="284" height="387" alt="image" src="https://github.com/user-attachments/assets/4b3049f7-4e3e-495e-a87a-086422193eb2" /></td>
     </td>
   </tr>
 </table>
@@ -152,8 +152,8 @@ Font: sf-display-pro
       <img width="490" height="559" alt="image" src="https://github.com/user-attachments/assets/a417b8fc-e34f-4fa6-8a6f-4f40ab3d22cd" /></td>
     </td>
     <td width="50%" align="center">
-      <h5>Rofi Nightlight</h5>
-      <video src="https://github.com/user-attachments/assets/11784326-a632-456d-a01c-0ad04f59d83b" controls="controls" style="max-width: 100%;"></video>
+      <h5>Rofi Emoji</h5>
+      <img width="647" height="549" alt="image" src="https://github.com/user-attachments/assets/e2ce6b0f-1689-4295-98a2-805f0cd2a657" /></td>
     </td>
   </tr>
 </table>
