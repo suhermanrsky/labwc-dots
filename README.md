@@ -43,9 +43,9 @@ blueman,
 wf-recorder, 
 wtype
 
-Icon: Reversal-black-dark
+**Icon:** Reversal-black-dark
 
-Font: sf-display-pro
+**Font:** sf-display-pro
 
 <details>
 <summary>
