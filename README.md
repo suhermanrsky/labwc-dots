@@ -136,7 +136,7 @@ Font: sf-display-pro
   <tr>
     <td width="50%" align="center">
       <h5>Rofi WIFI Manager</h5>
-      <video src="https://github.com/user-attachments/assets/779cb6fa-7909-4df0-9d58-5d9d525d3b18" controls="controls" style="max-width: 100%;"></video>
+      <img width="386" height="408" alt="image" src="https://github.com/user-attachments/assets/b8c87024-3c88-403f-8cc8-324e96fafca3" /></td>
     </td>
     <td width="50%" align="center">
       <h5>Rofi Nowplaying</h5>
