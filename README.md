@@ -43,9 +43,9 @@ blueman,
 wf-recorder, 
 wtype
 
-**Icon:** Reversal-black-dark
+**Icon:** [Reversal-black-dark](https://www.gnome-look.org/p/1340791)
 
-**Font:** sf-display-pro
+**Font:** sf-display-pro, jetbrain-mono
 
 <details>
 <summary>
