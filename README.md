@@ -180,7 +180,7 @@ Font: sf-display-pro
   </tr>
   <tr>
     <td colspan="3" align="center">
-      <video src="https://github.com/user-attachments/assets/3ea9bfa6-5348-4d1e-a7a1-1ed885b7a2c6" controls="controls" style="max-width: 100%;"></video>
+      <img width="382" height="267" alt="image" src="https://github.com/user-attachments/assets/478e6c86-fdbb-440f-a9fe-80c04fdd6a5e" /></td>
     </td>
   </tr>
 </table>
