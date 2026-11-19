@@ -89,7 +89,7 @@ Font: sf-display-pro
     </td>
   </tr>  
   <tr>
-    <img width="1920" height="41" alt="image" src="https://github.com/user-attachments/assets/03ee7c91-b0e6-4dba-8142-9da9755faadf" /></td>
+    Standard <img width="1920" height="41" alt="image" src="https://github.com/user-attachments/assets/03ee7c91-b0e6-4dba-8142-9da9755faadf" /></td>
   </tr>
   <tr>
 <img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/0d2d1305-815d-4fb9-878f-2c7ccb0c78da" /></td>
