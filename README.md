@@ -102,3 +102,81 @@ Circle: <img width="1920" height="40" alt="image" src="https://github.com/user-a
    Transparent: <img width="1920" height="37" alt="image" src="https://github.com/user-attachments/assets/7f7eb4e6-d4d1-46ec-88f9-1191d2e473bd" /></td>
   </tr>
   <tr>
+
+<details>
+<summary>
+<strong>
+<picture>
+  <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4f8/512.webp" type="image/webp">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4f8/512.gif" alt="📸" width="32" height="32">
+</picture>
+  Click Here to View Screenshots of Rofi
+</strong><br></br>
+</summary>
+  
+### Rofi Applets
+
+<table>
+ <tr>
+    <td colspan="2" align="center">
+      <h5>Wallpaper Picker</h5>
+    </td>
+  </tr>    
+  <tr>
+    <td align="center"><img src="https://github.com/user-attachments/assets/16c61848-88e1-49f6-bad9-cf69a048f0bc" width="100%" alt="wallselect"></td>
+    <td align="center"><img src="https://github.com/user-attachments/assets/99052231-6865-4e05-b5cd-bc62d01ef06a" width="100%" alt="wallselect"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <h5>Rofi WIFI Manager</h5>
+      <video src="https://github.com/user-attachments/assets/779cb6fa-7909-4df0-9d58-5d9d525d3b18" controls="controls" style="max-width: 100%;"></video>
+    </td>
+    <td width="50%" align="center">
+      <h5>Rofi Nowplaying</h5>
+      <video src="https://github.com/user-attachments/assets/9426fdae-8a95-4335-972e-11dd9aaa1762" controls="controls" style="max-width: 100%;"></video>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <h5>Rofi Clipboard Manager</h5>
+      <video src="https://github.com/user-attachments/assets/bc4f54b8-6bb6-4a74-96db-2ca61d81e915" controls="controls" style="max-width: 100%;"></video>
+    </td>
+    <td width="50%" align="center">
+      <h5>Rofi Nightlight</h5>
+      <video src="https://github.com/user-attachments/assets/11784326-a632-456d-a01c-0ad04f59d83b" controls="controls" style="max-width: 100%;"></video>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="3" align="center">
+      <h5>Rofi Screen Tool</h5>
+    </td>
+  </tr>  
+  <tr>
+    <td align="center">
+      <h5>Recording Thumbnail</h5>
+      <img src="https://github.com/user-attachments/assets/66757cca-3feb-4080-b832-9972bc87d675" width="100%">
+    </td>
+    <td align="center">
+      <h5>Screenshot Save</h5>
+      <img src="https://github.com/user-attachments/assets/b55b5e35-360d-4c1f-aab0-13e88de17074" width="100%">
+    </td>
+    <td align="center">
+      <h5>Screenshot Copied</h5>
+      <img src="https://github.com/user-attachments/assets/cb97e7fd-4218-48ef-897f-bad77e97939a" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+      <video src="https://github.com/user-attachments/assets/3ea9bfa6-5348-4d1e-a7a1-1ed885b7a2c6" controls="controls" style="max-width: 100%;"></video>
+    </td>
+  </tr>
+</table>
