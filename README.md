@@ -97,7 +97,6 @@ Circle: <img width="1920" height="40" alt="image" src="https://github.com/user-a
   </tr>
   <tr>
    Compact-pill: <img width="1920" height="44" alt="image" src="https://github.com/user-attachments/assets/a53055c9-f707-432a-be24-239c675777be" /></td>
-  ![Waybar Demo](personal-labwc-dotfiles/Recording_20261119-065619.gif)
   </tr>
   <tr>
    Transparent: <img width="1920" height="37" alt="image" src="https://github.com/user-attachments/assets/7f7eb4e6-d4d1-46ec-88f9-1191d2e473bd" /></td>
