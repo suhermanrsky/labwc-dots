@@ -149,7 +149,7 @@ Font: sf-display-pro
   <tr>
     <td width="50%" align="center">
       <h5>Rofi Clipboard Manager</h5>
-      <video src="https://github.com/user-attachments/assets/bc4f54b8-6bb6-4a74-96db-2ca61d81e915" controls="controls" style="max-width: 100%;"></video>
+      <img width="490" height="559" alt="image" src="https://github.com/user-attachments/assets/a417b8fc-e34f-4fa6-8a6f-4f40ab3d22cd" /></td>
     </td>
     <td width="50%" align="center">
       <h5>Rofi Nightlight</h5>
