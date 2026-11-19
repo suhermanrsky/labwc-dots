@@ -101,6 +101,6 @@ Circle: <img width="1920" height="40" alt="image" src="https://github.com/user-a
   </tr>
   <tr>
    Transparent: <img width="1920" height="37" alt="image" src="https://github.com/user-attachments/assets/7f7eb4e6-d4d1-46ec-88f9-1191d2e473bd" /></td>
-   <video src="https://github.com/user-attachments/assets/828cc27f-9133-4221-baa3-a5614eee5a24" ></video>
+   <img src="https://github.com/user-attachments/assets/828cc27f-9133-4221-baa3-a5614eee5a24" alt="Waybar Demo">
   </tr>
   <tr>
