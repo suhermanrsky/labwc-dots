@@ -1,0 +1,349 @@
+/* Layout: compact-pill */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "SF Pro Display", "Iosevka Term", Inter, Adwaita,  Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @bar_bg;
+    color: @bar_fg;
+}
+
+tooltip {
+    background-color: @bar_bg;
+    border: 1px solid alpha(@hover_bg, 0.2);
+    border-radius: 12px;
+}
+tooltip label {
+    color: @bar_fg;
+    text-shadow: none;
+}
+
+/* --- Modules: Base --- */
+#tray,
+#bluetooth,
+#temperature,
+#battery,
+#workspace,
+#custom-data-monitor,
+#clock,
+#custom-clock,
+#network,
+#custom-vpn,
+#custom-chrome,
+#custom-terminal,
+#custom-code,
+#custom-gallery,
+#custom-thunar,
+#custom-todo,
+#custom-countdown,
+#backlight,
+#pulseaudio,
+#memory,
+#power-profiles-daemon,
+#custom-emoji,
+#custom-clip,
+#custom-wallselect, 
+#custom-snip,
+#custom-taskmanager,
+#custom-theme-switcher,
+#tray,
+#idle_inhibitor,
+#custom-power,
+#custom-launcher,
+#custom-notification,
+#custom-timer {
+    background: @module_bg;
+    color: @module_fg;
+    padding: 0px 10px;
+    margin: 4px 0px 4px 0px;
+    border-radius: 0px;
+    transition: all 0.3s ease;
+}
+
+/* --- Modules: Workspaces --- */
+#workspaces {
+    background: none;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+#workspaces button {
+    background: @module_bg;
+    color: @module_fg;
+    padding: 0px 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 0px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:first-child {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+#workspaces button:last-child {
+    border-top-right-radius: 99px;
+    border-bottom-right-radius: 99px;
+}
+
+#custom-notification {
+   padding-left: 6px;
+}
+
+#custom-countdown {
+    margin-left: 1px;
+    border-radius: 99px;
+}
+#custom-launcher {
+    color: @primary;
+    margin-left: 2px;
+    border-radius: 99px 0px 0px 99px;
+}
+#custom-timer {
+    border-radius: 99px 0px 0px 99px;
+}
+#custom-todo {
+    border-radius: 0px 99px 99px 0px;
+}
+
+#custom-power {
+    background: @module_bg;
+    color: @power;
+    margin-right: 2px;
+    border-radius: 0px 99px 99px 0px;
+}
+
+#keyboard-state {
+    background: transparent;
+}
+#keyboard-state label.locked {
+    background: @special;
+    color: @module_fg; 
+    padding: 0px 10px;
+    margin: 4px 4px 4px 0px;	
+    border-radius: 99px;
+}
+#network.disconnected,
+#network.disabled {
+    color: @power; 
+}
+
+/* --- Hover Effects --- */
+#backlight:hover,
+#tray:hover,
+#workspaces button.active, 
+#workspaces button:hover,
+#temperature:hover, 
+#battery:hover,
+#bluetooth:hover,
+#bluetooth.on,
+#bluetooth.enabled,
+#bluetooth.connected,
+#bluetooth.discoverable,
+#bluetooth.on:hover,
+#bluetooth.enabled:hover,
+#bluetooth.connected:hover,
+#battery:hover
+#custom-data-monitor:hover,
+#clock:hover,
+#custom-clock:hover,
+#network:hover,
+#custom-vpn:hover,
+#memory:hover,
+#power-profiles-daemon:hover,
+#custom-emoji:hover,
+#custom-clip:hover,
+#custom-wallselect:hover,
+#custom-snip:hover,
+#custom-taskmanager:hover,
+#custom-theme-switcher:hover,
+#idle_inhibitor:hover,
+#custom-chrome:hover,
+#custom-terminal:hover,
+#custom-code:hover,
+#custom-music:hover,
+#custom-thunar:hover,
+#custom-notification:hover {
+    background: @hover_bg;
+    color: @hover_fg;
+}
+
+#custom-launcher:hover {
+    background: @hover_bg;
+    color: @hover_fg;
+}
+
+#custom-todo:hover,
+#custom-countdown:hover,
+#custom-timer:hover {
+    background: @special;
+    color: @special_fg;
+}
+
+#custom-power:hover {
+    background: @power;
+    color: @bar_bg;
+}
+
+/* --- Taskbar --- */
+#taskbar {
+    background: @module_bg;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 0px;
+    padding: 4px;
+    border-radius: 99px;
+}
+
+#taskbar.empty {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#taskbar button {
+    padding: 0 8px;
+    border: 1px solid transparent;
+    border-radius: 99px;
+    transition: background 0.3s ease;
+}
+
+#taskbar:first-child {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+#taskbar:last-child {
+    border-top-right-radius: 99px;
+    border-bottom-right-radius: 99px;
+}
+
+#taskbar button.active {
+    background: alpha(@hover_bg, 0.25);
+}
+
+#taskbar button:hover {
+    background: alpha(@hover_bg, 0.15);
+}
+
+
+/* -----------------------------------------------------------------------------
+ * STATUS & ALERTS
+ * -------------------------------------------------------------------------- */
+
+#custom-timer {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+}
+#custom-timer.running {
+    color: @primary;
+}
+#custom-timer.running:hover {
+    background: @hover_bg;
+    color: @hover_fg;
+}
+#custom-timer.paused {
+    color: @power;
+}
+
+/* Pending Tasks */
+#custom-todo.pending {
+    color: @power;
+}
+#custom-todo.pending:hover,
+#custom-timer.paused:hover {
+    background: @power;
+    color: @bar_bg;
+}
+
+/* Critical Animations */
+#custom-timer.expired,
+#custom-countdown.expired {
+    background-color: @module_bg;
+    color: @module_fg;      
+    animation-name: none;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-timer.expired:hover,
+#custom-countdown.expired:hover {
+    background-color: @hover_bg;
+    color: @hover_fg;
+}
+
+@keyframes blink-critical {
+    0% {
+        background-color: @power;
+        color: @bar_bg;
+    }
+    50% {
+        background-color: @module_bg;
+        color: @power;
+    }
+    100% {
+        background-color: @power;
+        color: @bar_bg;
+    }
+}
+
+#group-volume {
+    background: @module_bg;
+    margin: 4px 0 4px;
+    padding: 0px;
+    border-radius: 0px; /* Bentuk dasar kotak datar agar klop dengan modul strip */
+}
+
+#pulseaudio-slider {
+    background-color: @module_bg;
+    margin: 4px 0 4px;
+    min-width: 90px;
+    margin-left: 7px;
+    margin-right: 8px;
+    padding: 0;
+}
+
+#pulseaudio-slider trough {
+    min-height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#pulseaudio-slider highlight {
+    min-height: 4px;
+    border-radius: 2px;
+    background-color: @primary;
+}
+
+#pulseaudio-slider slider {
+    min-height: 4px;
+    min-width: 4px;
+    border-radius: 50%;
+    border: 0px solid @module_bg;
+    background: @primary;
+    margin: -8;
+    box-shadow: none;
+}
+
+#group-volume:hover slider {
+    border-color: @hover_fg;
+    background-color: @hover_bg;
+}
+
+#pulseaudio:hover {
+    background: @hover_bg;
+    color: @hover_fg;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 10px; 
+}
