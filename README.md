@@ -89,17 +89,17 @@ Font: sf-display-pro
     </td>
   </tr>  
   <tr>
-    Standard <img width="1920" height="41" alt="image" src="https://github.com/user-attachments/assets/03ee7c91-b0e6-4dba-8142-9da9755faadf" /></td>
+    Standard: <img width="1920" height="41" alt="image" src="https://github.com/user-attachments/assets/03ee7c91-b0e6-4dba-8142-9da9755faadf" /></td>
   </tr>
   <tr>
-<img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/0d2d1305-815d-4fb9-878f-2c7ccb0c78da" /></td>
-    <img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/623597e2-235a-42f9-8f0f-1ba44afe4aed" /></td>
+Circle: <img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/0d2d1305-815d-4fb9-878f-2c7ccb0c78da" /></td>
+ Compact:   <img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/623597e2-235a-42f9-8f0f-1ba44afe4aed" /></td>
   </tr>
   <tr>
-    <img width="1920" height="44" alt="image" src="https://github.com/user-attachments/assets/a53055c9-f707-432a-be24-239c675777be" /></td>
-    <img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/64b38db1-f630-44c4-9f32-7a0f3f4a254b" /></td>
+   Compact-pill: <img width="1920" height="44" alt="image" src="https://github.com/user-attachments/assets/a53055c9-f707-432a-be24-239c675777be" /></td>
+  Square: <img width="1920" height="40" alt="image" src="https://github.com/user-attachments/assets/64b38db1-f630-44c4-9f32-7a0f3f4a254b" /></td>
   </tr>
   <tr>
-    <img width="1920" height="37" alt="image" src="https://github.com/user-attachments/assets/7f7eb4e6-d4d1-46ec-88f9-1191d2e473bd" /></td>
+   Transparent: <img width="1920" height="37" alt="image" src="https://github.com/user-attachments/assets/7f7eb4e6-d4d1-46ec-88f9-1191d2e473bd" /></td>
   </tr>
   <tr>
