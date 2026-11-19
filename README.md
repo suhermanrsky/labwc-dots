@@ -45,7 +45,7 @@ wtype
 
 **Icon:** [Reversal-black-dark](https://www.gnome-look.org/p/1340791)
 
-**Font:** sf-display-pro, jetbrain-mono
+**Font:** sf-display-pro, jetbrain-mono, nerd-font
 
 <details>
 <summary>
