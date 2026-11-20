@@ -38,6 +38,8 @@ rofi,
 lm_sensors,
 libinput-utils,
 libinput,
+udisks2,
+gvfs,
 ffmpegthumbnailer,
 thumbd,
 waybar,
@@ -50,7 +52,7 @@ wtype
 
 **Icon:** [Reversal-black-dark](https://www.gnome-look.org/p/1340791)
 
-**Font:** sf-display-pro, jetbrain-mono, nerd-font
+**Font:** sf-display-pro, jetbrain-mono, nerd-font, fonts-noto-core, fonts-font-awesome, fonts-noto-color-emoji
 
 <details>
 <summary>
