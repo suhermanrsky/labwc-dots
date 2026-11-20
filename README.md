@@ -127,7 +127,7 @@ wtype
     </td>
   </tr>    
   <tr>
-    <td align="center"><img src="https://github.com/user-attachments/assets/16c61848-88e1-49f6-bad9-cf69a048f0bc" width="100%" alt="wallselect"></td>
+    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fa40242b-773c-4af7-a507-d5ea9434a713" /></td>
     <td align="center"><img src="https://github.com/user-attachments/assets/99052231-6865-4e05-b5cd-bc62d01ef06a" width="100%" alt="wallselect"></td>
   </tr>
 </table>
