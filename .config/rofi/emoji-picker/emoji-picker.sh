@@ -56,8 +56,11 @@ selected=$(rofi -dmenu -multi-select \
 emoji_string=$(echo "$selected" | awk '{print $1}' | tr -d '\n')
 # Copy to clipboard
 wl-copy <<<"$emoji_string"
+sleep 0.1
 notify-send -t 2000 "Emoji Copied!" "$emoji_string"
-
+# Auto-paste
+wtype -M ctrl -M shift -P v -s 500 -p v -m shift -m ctrl
+notify-send -t 2000 "Emoji Copied!" "$emoji_string"
 # Update recent list (preserve selection order)
 tmp_file=$(mktemp)
 
