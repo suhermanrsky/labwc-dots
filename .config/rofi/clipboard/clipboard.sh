@@ -28,7 +28,7 @@ copy_pinned_item() {
   if [[ "$item" == IMG:* ]]; then
     local img_path="${item#IMG:}"
     if [[ -f "$img_path" ]]; then
-      wl-copy < "$img_path"
+      wl-copy --type image/png < "$img_path"
       notify-send "Clipboard Manager" "Pinned image copied to clipboard" --icon="$img_path"
     else
       notify-send "Clipboard Manager" "Pinned image file not found!"
@@ -40,6 +40,7 @@ copy_pinned_item() {
   fi
 }
 
+# --- GANTI BAGIAN INI ---
 remove_pinned_line() {
   local line_num="$1"
   local content
@@ -47,7 +48,9 @@ remove_pinned_line() {
   if [[ "$content" == IMG:* ]]; then
     local img_to_del="${content#IMG:}"
     if [[ -f "$img_to_del" ]]; then
-      cliphist -db-path "$img_db" store < "$img_to_del"
+      wl-copy --type image/png < "$img_to_del"
+      sleep 0.1
+      wl-paste --type image/png | cliphist -db-path "$img_db" store
       rm -f "$img_to_del"
     fi
   elif [[ -n "$content" ]]; then
@@ -359,28 +362,33 @@ clipboard=$(
   } | rofi -dmenu -display-columns 2 -theme "$clip_theme"
 )
 
+# --- GANTI BAGIAN INI (Mulai dari # Handle Selection sampai akhir file) ---
+# Bersihkan karakter tab di awal output rofi jika ada
+clean_clip="${clipboard#$'\t'}"
+
 # Handle Selection
-if [[ $clipboard == *"Pinned"* ]]; then
+if [[ "$clean_clip" == *"Pinned"* ]]; then
   manage_pinned
   exit
-elif [[ $clipboard == *"Image History"* ]]; then
+elif [[ "$clean_clip" == *"Image History"* ]]; then
   image_history
   exit
-elif [[ $clipboard == *"Batch Delete"* ]]; then
+elif [[ "$clean_clip" == *"Batch Delete"* ]]; then
   delete_items
   exit
-elif [[ $clipboard == *"Wipe Clipboard"* ]]; then
+elif [[ "$clean_clip" == *"Wipe Clipboard"* ]]; then
   wipe_clipboard
   exit
-elif [[ $clipboard == $'\uf02e  '* ]]; then
-  item_name="${clipboard#$'\uf02e  '}"
+elif [[ "$clean_clip" == $'\uf02e'* ]]; then
+  # Hapus ikon bookmark dan spasi setelahnya secara aman
+  item_name=$(echo "$clean_clip" | sed 's/^.[[:space:]]*//')
   if [[ -f "$pinned_img_dir/$item_name" ]]; then
     copy_pinned_item "IMG:$pinned_img_dir/$item_name"
   else
     copy_pinned_item "$item_name"
   fi
   exit
-elif [[ -n $clipboard ]]; then
+elif [[ -n "$clean_clip" ]]; then
   handle_text_selection "$clipboard"
 else
   exit
