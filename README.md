@@ -4,6 +4,7 @@
 **Dependency:**
 alacritty,
 thunar,
+xfce4-taskmanager,
 network-manager,
 network-manager-applet,
 nm-connection-editor,
