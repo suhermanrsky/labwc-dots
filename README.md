@@ -4,6 +4,7 @@
 **Dependency:**
 alacritty,
 thunar,
+micro,
 xfce4-taskmanager,
 network-manager,
 network-manager-applet,
