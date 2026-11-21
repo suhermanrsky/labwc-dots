@@ -8,7 +8,7 @@
 config_dir="$HOME/.config/rofi/nowplaying"
 art_file="$config_dir/album_art.png"
 fallback_art_file="$config_dir/fallback_album_art.png"
-rofi_theme="$config_dir/styles/style-3"
+rofi_theme="$config_dir/styles/style-5"
 # styles directory
 styles_dir="$config_dir/styles"
 # cache files
@@ -143,10 +143,29 @@ fetch_data() {
             decoded_path="$(url_decode "$raw_path")"
             cp "$decoded_path" "$art_file"
         elif [[ "$album_art_url" =~ ^https:// ]]; then
-            curl -s "$album_art_url" --output "$art_file"
+            # === START OF CHANGED CODE ===
+            # 1. Upgrade Spotify low-res (300x300) CDN links to max resolution (640x640+)
+            hd_art_url=$(echo "$album_art_url" | sed -E \
+                -e 's|i\.scdn\.co/image/ab67616d00001e02|i.scdn.co/image/ab67616d0000b273|g' \
+                -e 's|i\.scdn\.co/image/ab67616d00004851|i.scdn.co/image/ab67616d0000b273|g' \
+                -e 's/=w[0-9]+-h[0-9]+[^&]*/=w1920-h1920-l90-rj/g' \
+                -e 's|/sddefault\.jpg|/maxresdefault.jpg|g' \
+                -e 's|/hqdefault\.jpg|/maxresdefault.jpg|g')
+
+            # 2. Download the HD image (fallback to original URL if HD URL fails)
+            if ! curl -fsSL "$hd_art_url" --output "$art_file" || [[ ! -s "$art_file" ]]; then
+                curl -fsSL "$album_art_url" --output "$art_file"
+            fi
+
+            # 3. Resize to FHD (1920x1080 or 1080x1080) using ImageMagick if installed
+            if command -v magick >/dev/null 2>&1; then
+                magick "$art_file" -resize 1080x1080^ -gravity center -extent 1080x1080 "$art_file"
+            elif command -v convert >/dev/null 2>&1; then
+                convert "$art_file" -resize 1080x1080^ -gravity center -extent 1080x1080 "$art_file"
+            fi
+            # === END OF CHANGED CODE ===
         fi
-        echo "generating artfile"
-    fi
+ fi
 
     # Clean up art and cache files if no active player
     if [[ -z "$active_player" ]]; then
