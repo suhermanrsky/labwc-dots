@@ -1,0 +1,8 @@
+[FfmpegThumbnailer]
+Disabled=false
+Priority=10
+Locations=
+MaxFileSize=0
+
+[GstThumbnailer]
+Disabled=true
