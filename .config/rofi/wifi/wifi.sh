@@ -42,9 +42,95 @@ prompt_vpn_password() {
     fi
 }
 
-# --- ATURAN URUTAN DIUBAH DI SINI ---
+manage_network_options() {
+    local target_ssid="$1"
+    while true; do
+        # Check if network connected
+        local is_active
+        is_active=$(nmcli -t -f NAME connection show --active | grep -x "$target_ssid" || true)
+
+        # Cek status autoconnect saat ini
+        local auto_status
+        auto_status=$(nmcli -g connection.autoconnect connection show "$target_ssid" 2>/dev/null || echo "no")
+
+        local auto_label
+        if [[ "$auto_status" == "yes" ]]; then
+            auto_label="   Autoconnect: Enabled (Click to Disable)"
+        else
+            auto_label="󰜺     Autoconnect: Disabled (Click to Enable)"
+        fi
+
+        # list menu
+        local menu_options="   Back\n${auto_label}"
+        if [[ -n "$is_active" ]]; then
+            menu_options="${menu_options}\n<span size='large' weight='bold'></span>    Disconnect"
+        else
+            menu_options="${menu_options}\n<span size='large' weight='bold'> </span>  Connect"
+        fi
+        menu_options="${menu_options}\n    Forget Network"
+
+        local choice
+        choice=$(echo -e "$menu_options" | rofi -markup-rows -dmenu -p "$target_ssid" -theme "$LIST_THEME" || true)
+
+        case "$choice" in
+            ""|*"Back"*)
+                break
+                ;;
+            *"Autoconnect: Enabled"*)
+                nmcli connection modify "$target_ssid" connection.autoconnect no
+                notify-send $notify_id -t 2000 " 󰜺       Autoconnect disabled for \"$target_ssid\""
+                ;;
+            *"Autoconnect: Disabled"*)
+                nmcli connection modify "$target_ssid" connection.autoconnect yes
+                notify-send $notify_id -t 2000 "       Autoconnect enabled for \"$target_ssid\""
+                ;;
+            *"Disconnect"*)
+                nmcli connection down id "$target_ssid" >/dev/null 2>&1
+                notify-send $notify_id -t 3000 "󰖪    Disconnected from \"$target_ssid\""
+                ;;
+            *"Connect"*)
+                notify-send $notify_id -t 3000 "       Connecting to \"$target_ssid\"..."
+                if nmcli connection up id "$target_ssid" >/dev/null 2>&1; then
+                    notify-send $notify_id -t 3000 "       Connected to \"$target_ssid\""
+                else
+                    notify-send $notify_id -t 3000 "       Failed to connect to \"$target_ssid\""
+                fi
+                ;;
+            *"Forget Network"*)
+                nmcli connection delete id "$target_ssid" >/dev/null 2>&1
+                notify-send $notify_id -t 3000 "       Forgot network \"$target_ssid\""
+                break
+                ;;
+        esac
+    done
+}
+
+
+manage_known_networks() {
+    while true; do
+        local known_list
+        known_list=$(nmcli -t -f NAME,TYPE connection show | grep ':802-11-wireless$' | cut -d: -f1 | awk '{printf "   %s\n", $0}')
+
+        local menu_items="   Back"
+        if [[ -n "$known_list" ]]; then
+            menu_items="${menu_items}\n${known_list}"
+        fi
+
+        local chosen
+        chosen=$(echo -e "$menu_items" | rofi -markup-rows -dmenu -p "Manage Networks" -theme "$LIST_THEME" || true)
+
+        if [[ -z "$chosen" || "$chosen" == *"Back"* ]]; then
+            exec "$0" "$@"
+        fi
+
+        local selected_ssid
+        selected_ssid=$(echo "$chosen" | sed 's/^[^ ]*   //')
+        manage_network_options "$selected_ssid"
+    done
+}
+
 list_wifi_menu() {
-    echo -e "     Disable Wi-Fi\n${connection_status}\n   Manual Setup\n${wifi_list}\n${vpn_section_header}${vpn_list}" | rofi -markup-rows -dmenu -theme "$LIST_THEME" || true
+    echo -e "󰤮  Disable Wi-Fi\n󱚾    Manage Known Networks\n${connection_status}\n   Rescan\n   Manual Setup\n${wifi_list}\n${vpn_section_header}${vpn_list}" | rofi -markup-rows -dmenu -theme "$LIST_THEME" || true
 }
 
 connect_secure_loop() {
@@ -59,7 +145,7 @@ connect_secure_loop() {
             exit 0
         fi
 
-        notify-send $notify_id -t 3000 "       Connecting to \"$target_ssid\""
+        notify-send $notify_id -t 3000 " 󱛆      Connecting to \"$target_ssid\""
         nmcli connection delete id "$target_ssid" &>/dev/null
 
         local output
@@ -120,7 +206,7 @@ connected_ssid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2- |
 # Get list of networks
 wifi_list=$(nmcli -t -f ssid,security dev wifi | awk -F: '
 {
-    icon = ($2 ~ /WPA|WEP|802\.1X/) ? "" : "";
+    icon = ($2 ~ /WPA|WEP|802\.1X/) ? "󱚿" : "󱛀";
     if ($1 != "") {
         printf "%s   %s\n", icon, $1
     }
@@ -130,24 +216,24 @@ wifi_list=$(nmcli -t -f ssid,security dev wifi | awk -F: '
 if [[ -n "$connected_ssid" ]]; then
     connection_status="   Connected to $connected_ssid"
 else
-    connection_status="     Wi-Fi not connected"
+    connection_status="󰖪  Wi-Fi not connected"
 fi
 
-# --- Pengambilan Profil VPN ---
+#VPN
 vpn_profiles=$(nmcli -t -f NAME,TYPE connection show | grep ':vpn$' | cut -d: -f1 || true)
 active_vpn=$(nmcli -t -f NAME,TYPE connection show --active | grep ':vpn$' | cut -d: -f1 | head -n1 || true)
 
 vpn_list=""
 vpn_section_header=""
 if [[ -n "$vpn_profiles" ]]; then
-    # Header pemisah sebelum daftar VPN dimulai
+
     vpn_section_header="--- VPN PROFILES ---\n"
     vpn_list=$(echo "$vpn_profiles" | awk -v active="$active_vpn" '
     {
         if ($0 == active) {
-            printf "   [VPN Active] %s\n", $0
+            printf "󰳈   [VPN Active] %s\n", $0
         } else {
-            printf "   [VPN] %s\n", $0
+            printf "󰦜  [VPN] %s\n", $0
         }
     }')
 fi
@@ -158,15 +244,14 @@ choice=$(list_wifi_menu)
 
 raw_choice="$choice"
 
-# Memeriksa apakah item yang dipilih adalah aksi VPN
 if [[ "$raw_choice" == *"[VPN]"* || "$raw_choice" == *"[VPN Active]"* ]]; then
-    vpn_target=$(echo "$choice" | sed -e 's/^[^ ]*   //' -e 's/^\[VPN Active\] //' -e 's/^\[VPN\] //')
+    vpn_target=$(echo "$choice" | sed -E 's/^.*\[VPN( Active)?\] //')
     
     if [[ "$vpn_target" == "$active_vpn" ]]; then
         nmcli connection down id "$vpn_target"
         notify-send $notify_id -t 3000 "         Disconnected from VPN: \"$vpn_target\""
     else
-        notify-send $notify_id -t 3000 "       Connecting to VPN: \"$vpn_target\"..."
+        notify-send $notify_id -t 3000 " 󰳈      Connecting to VPN: \"$vpn_target\"..."
         if nmcli connection up id "$vpn_target" >/dev/null 2>&1; then
             notify-send $notify_id -t 3000 "       VPN Connected to \"$vpn_target\""
         else
@@ -176,7 +261,6 @@ if [[ "$raw_choice" == *"[VPN]"* || "$raw_choice" == *"[VPN Active]"* ]]; then
     exit 0
 fi
 
-# Logika Standar Wi-Fi
 ssid_name=$(echo "$choice" | sed 's/^[^ ]*   //')
 
 case "$raw_choice" in
@@ -189,11 +273,22 @@ case "$raw_choice" in
     notify-send $notify_id "         Wi-Fi Disabled..."
     ;;
 
+*"Manage Known Networks"*)
+    manage_known_networks "$@"
+    ;;
+
 *"Manual Setup"*)
     manual_ssid=$(prompt_ssid)
     [[ -z "$manual_ssid" ]] && exit 0
     manual_password=$(prompt_password)
     nmcli dev wifi connect "$manual_ssid" hidden yes password "$manual_password"
+    ;;
+
+*"Rescan"*)
+    notify-send $notify_id -t 3000 "       Rescanning Wi-Fi networks..."
+    nmcli dev wifi rescan >/dev/null 2>&1 || true
+    sleep 1
+    exec "$0" "$@"
     ;;
 
 *"Connected to"*)
@@ -206,14 +301,13 @@ case "$raw_choice" in
     ;;
 
 *)
-    # === KONEKSI WI-FI ===
     saved_profile_exists=false
     if nmcli -t -f NAME connection show | grep -q -x "$ssid_name"; then
         saved_profile_exists=true
     fi
 
     if [[ "$saved_profile_exists" == "true" ]]; then
-        notify-send $notify_id -t 3000 "       Connecting to saved network: \"$ssid_name\""
+        notify-send $notify_id -t 3000 "  ...    Connecting to saved network: \"$ssid_name\""
         if nmcli dev wifi connect "$ssid_name" >/dev/null 2>&1; then
             notify-send $notify_id -t 3000 "       Connected to \"$ssid_name\""
             exit 0
@@ -222,10 +316,10 @@ case "$raw_choice" in
         fi
     fi
 
-    if [[ "$raw_choice" == *""* ]]; then
+    if [[ "$raw_choice" == *"  "* ]]; then
         connect_secure_loop "$ssid_name"
     else
-        notify-send $notify_id -t 3000 "       Connecting to \"$ssid_name\""
+        notify-send $notify_id -t 3000 " ...  Connecting to \"$ssid_name\""
         if nmcli dev wifi connect "$ssid_name" >/dev/null 2>&1; then
             notify-send $notify_id -t 3000 "       Connected to \"$ssid_name\""
         else
